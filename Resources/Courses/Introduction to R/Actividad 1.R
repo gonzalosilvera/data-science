@@ -1,0 +1,6 @@
+RegionA=read.table("RegionA.txt", header=TRUE, sep="\t")
+hist(RegionA$Altura)
+pie(table(RegionA$Variedad))
+Factor=cut(RegionA$Diámetro, breaks=c(8,9,10,11,12,Inf), right=FALSE, labels=c("8-9","9-10","10-11","11-12","12-..."))
+RegionA$Factor=ordered(Factor)
+barplot(table(RegionA$Factor))

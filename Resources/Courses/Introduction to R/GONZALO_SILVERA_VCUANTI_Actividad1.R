@@ -1,0 +1,4 @@
+str(Notas_Parciales_Matema_tica_Grupo_UNO)
+table(Notas_Parciales_Matema_tica_Grupo_UNO)
+attach(Notas_Parciales_Matema_tica_Grupo_UNO)
+round(summary(Notas_Parciales_Matema_tica_Grupo_UNO),1)
