@@ -5,8 +5,5 @@
 #### Python projects
 * Coming soon
 #### Useful Resources
-* Courses
+* Course
 * Books
-
-
-
