@@ -1,7 +1,6 @@
 # Data science
-## Projects & resources
+## Projects
 #### R projects
 * COVID-19 vaccination in Uruguay
 #### Python projects
-* Kaggle
-* Tests
+* Distribution center
