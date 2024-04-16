@@ -14,9 +14,6 @@ vaccination_events <- read_delim(
   trim_ws = TRUE
 )
 
-# Display dataframe
-View(vaccination_events)
-
 # Total vaccination doses by type
 total_events = c(sum(vaccination_events[, 4:5]),
                  sum(vaccination_events[, 6:7]),
@@ -27,9 +24,6 @@ frel_events = data.frame(
   "type" = c("Sinovac", "Pfizer", "Astrazeneca"),
   "events" = prop.table(total_events)
 )
-
-# Display dataframe
-View(frel_events)
 
 #create pie chart
 ggplot(frel_events, aes(x = "", y = events, fill = type)) +
@@ -68,7 +62,6 @@ Astrazeneca = rowSums(vaccination_events[, 8:9])
 # Vaccination events by type per month
 events_type_month = data.frame(month, Sinovac, Pfizer, Astrazeneca)
 
-View(events_type_month)
 # Group events per month
 events_type = aggregate(events_type_month[, 2:4],
                         by = list(month),
