@@ -96,6 +96,8 @@ ggplot(events_month_long, aes(x = Month, y = Count, fill = Vaccine)) +
   theme(
     axis.title = element_blank(),
     axis.line = element_blank(),
-    panel.grid = element_blank()
+    panel.grid = element_blank(),
+    panel.background = element_rect(fill='transparent'),
+    plot.background = element_rect(fill='transparent')
   ) +
   scale_fill_brewer()
