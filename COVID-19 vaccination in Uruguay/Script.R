@@ -15,25 +15,29 @@ vaccination_events <- read_delim(
 )
 
 # Total vaccination doses by type
-total_events = c(sum(vaccination_events[, 4:5]),
-                 sum(vaccination_events[, 6:7]),
-                 sum(vaccination_events[, 8:9]))
+total_events <- c(
+  sum(vaccination_events[, 4:5]),
+  sum(vaccination_events[, 6:7]),
+  sum(vaccination_events[, 8:9])
+)
 
 # Vaccination event relative frequencies
-frel_events = data.frame(
+frel_events <- data.frame(
   "type" = c("Sinovac", "Pfizer", "Astrazeneca"),
   "events" = prop.table(total_events)
 )
 
-#create pie chart
+# create pie chart
 ggplot(frel_events, aes(x = "", y = events, fill = type)) +
   geom_bar(stat = "identity", width = 1) +
   coord_polar("y") +
-  geom_text(aes(
-    x = 1.7,
-    label = scales::percent(events, accuracy = .01)
-  ),
-  position = position_stack(vjust = .5)) +
+  geom_text(
+    aes(
+      x = 1.7,
+      label = scales::percent(events, accuracy = .01)
+    ),
+    position = position_stack(vjust = .5)
+  ) +
   labs(x = NULL, y = NULL) +
   labs(fill = "Type") +
   theme(
@@ -45,30 +49,31 @@ ggplot(frel_events, aes(x = "", y = events, fill = type)) +
   scale_fill_brewer()
 
 # Vaccination events sorted by date
-vaccination_events = vaccination_events[order(vaccination_events$Fecha), ]
+vaccination_events <- vaccination_events[order(vaccination_events$Fecha), ]
 
 # Date format
-month = format(vaccination_events$Fecha, "%m")
+month <- format(vaccination_events$Fecha, "%m")
 
 # Sinovac doses summation
-Sinovac = rowSums(vaccination_events[, 4:5])
+Sinovac <- rowSums(vaccination_events[, 4:5])
 
 # Pfizer doses summation
-Pfizer = rowSums(vaccination_events[, 6:7])
+Pfizer <- rowSums(vaccination_events[, 6:7])
 
 # Astrazeneca doses summation
-Astrazeneca = rowSums(vaccination_events[, 8:9])
+Astrazeneca <- rowSums(vaccination_events[, 8:9])
 
 # Vaccination events by type per month
-events_type_month = data.frame(month, Sinovac, Pfizer, Astrazeneca)
+events_type_month <- data.frame(month, Sinovac, Pfizer, Astrazeneca)
 
 # Group events per month
-events_type = aggregate(events_type_month[, 2:4],
-                        by = list(month),
-                        FUN = sum)
+events_type <- aggregate(events_type_month[, 2:4],
+  by = list(month),
+  FUN = sum
+)
 
 # Months label
-months = c("February", "March", "April", "May", "June", "July", "August")
+months <- c("February", "March", "April", "May", "June", "July", "August")
 
 # Events per month dataframe
 events_month <- data.frame(
@@ -97,7 +102,7 @@ ggplot(events_month_long, aes(x = Month, y = Count, fill = Vaccine)) +
     axis.title = element_blank(),
     axis.line = element_blank(),
     panel.grid = element_blank(),
-    panel.background = element_rect(fill='transparent'),
-    plot.background = element_rect(fill='transparent')
+    panel.background = element_rect(fill = "transparent"),
+    plot.background = element_rect(fill = "transparent")
   ) +
   scale_fill_brewer()
