@@ -6,7 +6,7 @@ library(ggplot2)
 # Cumulative data per day of vaccination events. Daily totals
 # are presented by vaccine type, doses, departments, and age ranges.
 # Database retrieved from https://catalogodatos.gub.uy/.
-url <- "vaccination_events.csv"
+url <- "covid19_vaccination_dataset"
 
 # Vaccination events dataframe
 vaccination_events <- read_delim(
