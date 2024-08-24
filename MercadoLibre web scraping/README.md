@@ -1,2 +1,5 @@
 # MercadoLibre web scraping
-This project involves scraping real estate listings from MercadoLibre to extract property data such as titles, prices, and locations. It was created with pandas and BeautifulSoup.
+This project was created with Openpyxl, Pandas and BeautifulSoup.
+
+### Description
+The objective of this project is collecting real estate data from the e-commerce site MercadoLibre.
