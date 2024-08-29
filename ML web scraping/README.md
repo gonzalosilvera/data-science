@@ -1,4 +1,4 @@
-# MercadoLibre web scraping
+# ML web scraping
 This project was created with Openpyxl, Pandas and BeautifulSoup.
 
 ### Description
